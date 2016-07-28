@@ -135,6 +135,9 @@
                 NSInteger index = indexX + indexY*itemPerLine;
                 index = (index == 0)? 1:index;
                 [locateView removeObject:self];
+                 if (index > locateView.count - 1) {
+                    index = locateView.count - 1;
+                }//这个是huyahui的修改意见,加了之后拖动不再crash
                 [topView insertObject:self atIndex:index];
                 locateView = topView;
                 [self animationForTopView];
